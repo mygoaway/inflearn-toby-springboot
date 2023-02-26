@@ -1,6 +1,7 @@
 package tobyspring.my.boot;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,13 +19,14 @@ import java.lang.annotation.Target;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class HelloApiTest {
 
     @Test
     void helloApi() {
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         ResponseEntity<String> result = testRestTemplate.getForEntity(
-                "http://localhost:8080/hello?name={name}",
+                "http://localhost:9090/app/hello?name={name}",
                 String.class,
                 "Spring"
         );

@@ -18,7 +18,7 @@ public class MyAutoConfigImportSelector implements DeferredImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
         List<String> autoConfigs = new ArrayList<>();
-        ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(autoConfigs::add);
+        ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(autoConfigs::add); // tobyspring.config.MyAutoConfiguration.imports에서 통해서 저장
         return autoConfigs.toArray(new String[0]);
     }
 }

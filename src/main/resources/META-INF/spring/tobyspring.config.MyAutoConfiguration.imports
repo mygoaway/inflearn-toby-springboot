@@ -1,4 +1,9 @@
+tobyspring.config.autoconfig.DataSourceConfig
+tobyspring.config.autoconfig.PropertyPostProcessorConfig
 tobyspring.config.autoconfig.PropertyPlaceHolderConfig
 tobyspring.config.autoconfig.TomcatWebServerConfig
 tobyspring.config.autoconfig.DispatcherServletConfig
 tobyspring.config.autoconfig.JettyWebServerConfig
+## org.spring.framework.boot.autoconfigure.AutoConfiguration.imports 내 144개의 AutoConfiguration 이 등록되어 있음
+## 그래서 모든 등록된거를 사용할 수 없으니 조건을 걸어야 함 => ConditionalMyOnClass // MyOnClassCondition 이 등장하게 됨
+## => 예를 들어, TomcatWebServerConfig // JettyWebServerConfig 둘다 띄우는 경우 애플리케이션을 띄울 때 에러 발생 => 조건을 걸자!
